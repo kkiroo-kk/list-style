@@ -1,0 +1,107 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    list-style: none;
+    /* margin: 28px 0; */
+    text-align: center;
+    padding: 14px 0;
+}
+
+ul {
+    opacity: 1;
+}
+
+ul:hover li:not(:hover) a {
+    opacity: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    background-color: darkblue;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    padding: 6px 15px;
+    display: inline-block;
+    width: 120px;
+    border-radius: 20px;
+    transition: 0.5s;
+    position: relative;
+    z-index: 10;
+}
+
+li:hover a {
+    transform: scale(1.5);
+    background-color: darkorchid;
+    opacity: 1;
+}
+
+body {
+    background: linear-gradient(#01012e, rgb(36, 0, 25));
+    height: 100vh;
+    text-transform: uppercase;
+    overflow: hidden
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(./stars1.png);
+    height: 100vh;
+}
+
+li::after {
+    content: attr(data-text);
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    font-size: 80px;
+    font-weight: 800;
+    letter-spacing: 60px;
+    opacity: 0;
+    transition: 0.6s;
+    pointer-events: none;
+}
+li:hover:after{
+    opacity: 1;
+    letter-spacing: 2px;
+}
+li::before{
+    content: "";
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,220%);
+    box-shadow: 0 0 120px rgb(92, 59, 241);
+    opacity: 0;
+    transition: 0.5s;
+    pointer-events: none
+}
+li:hover::before{
+    opacity: 0.9;
+    width: 80px;
+}
+li::before {
+    background-color: var(--c, white);
+    box-shadow: 0 0 120px var(--c, rgb(92, 59, 241));
+}
+
+li:nth-child(1) { --c: #fbbf24; }  /* Sun */
+li:nth-child(2) { --c: #a8a29e; }  /* Mercury */
+li:nth-child(3) { --c: #fb923c; }  /* Venus */
+li:nth-child(4) { --c: #38bdf8; }  /* Earth */
+li:nth-child(5) { --c: #f59e0b; }  /* Jupiter */
+li:nth-child(6) { --c: #fde68a; }  /* Saturn */
+li:nth-child(7) { --c: #67e8f9; }  /* Uranus */
+li:nth-child(8) { --c: #818cf8; }  /* Neptune */
